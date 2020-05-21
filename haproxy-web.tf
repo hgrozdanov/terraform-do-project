@@ -8,7 +8,7 @@ resource "digitalocean_droplet" "haproxy-web" {
         "${var.ssh_fingerprint}"
   ]
   connection {
-      host = "digitalocean_droplet.haproxy-web.ipv4_address"
+      host = "${digitalocean_droplet.haproxy-web.ipv4_address}"
       user = "root"
       type = "ssh"
       private_key = "${file(var.pvt_key)}"
